@@ -1,3 +1,31 @@
+17.04.21 Восьмой commit.
+Наконец то!
+Этот commit полностью рабочий. У приложения правильная структура и работает отправка почты.
+Важно!
+
+MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.yandex.ru')
+MAIL_PORT = int(os.environ.get('MAIL_PORT', '587'))
+FLASKY_MAIL_SENDER = 'Flasky Admin <k######.##@u####.ru>'
+
+В FLASKY_MAIL_SENDER в скобках <> должна указываться почта того, кто ОТПРАВЛЯЕТ письмо (кто регистрируется на сайте).
+set FLASKY_ADMIN=l*******@yandex.ru - задание через консоль того, кто будет ПОЛУЧАТЬ почту.
+Плюс я удалил старую базу данных и снова её создал.
+
+Перед запуском приложения в терминале необходимо ввести:
+(venv) C:\Users\Эдварт\PycharmProjects\pythonProject>set FLASK_APP=flasky.py
+
+(venv) C:\Users\Эдварт\PycharmProjects\pythonProject>set FLASK_DEBUG=1
+
+(venv) C:\Users\Эдварт\PycharmProjects\pythonProject>set MAIL_USE_TLS=1
+
+(venv) C:\Users\Эдварт\PycharmProjects\pythonProject>set MAIL_USERNAME=k######.##@u####.ru
+
+(venv) C:\Users\Эдварт\PycharmProjects\pythonProject>set MAIL_PASSWORD=...
+
+(venv) C:\Users\Эдварт\PycharmProjects\pythonProject>set FLASKY_ADMIN=l*******@yandex.ru
+
+(venv) C:\Users\Эдварт\PycharmProjects\pythonProject>flask run
+
 13.04.21 Седьмой commit.
 Приложение запускается (показывает Hello, Stranger!), тестый работают.
 Но почта не отправляется (yandex.ru), и при нажатие Submit приложение крашиться.
