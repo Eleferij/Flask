@@ -1,3 +1,43 @@
+25.04.21 Девятый commit (хрен знает сработает или нет - я пробую команду git pull).
+Я накосячил. Накосячил с commit - "потерял" восьмой commit. Пытаюсь теперь всё вернуть на место.
+Это промежуточный результат по главе 8. У меня полностью получилось всё до 17й страницы:
+- добавлена форма входа (Login);
+- регистрация (Register);
+- после регистрации пользователи добавляются в базу данных.
+Дальше по шлаве идёт подтверждение аккаунта с токенами, но они пока не получилис и в этот commit я их не вносил.
+Вожно!
+В главе не говорилось, но понадобилось установить email-validator 1.1.2. Без негоне получалось произвести валидацию.
+Плсюс в файле views.py нужно добавить from .forms import LoginForm, RegistrationForm
+from .forms import LoginForm уже было, а вот про RegistrationForm забыли.
+
+17.04.21 Восьмой commit.
+Наконец то!
+Этот commit полностью рабочий. У приложения правильная структура и работает отправка почты.
+Важно!
+
+MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.yandex.ru')
+MAIL_PORT = int(os.environ.get('MAIL_PORT', '587'))
+FLASKY_MAIL_SENDER = 'Flasky Admin <k######.##@u####.ru>'
+
+В FLASKY_MAIL_SENDER в скобках <> должна указываться почта того, кто ОТПРАВЛЯЕТ письмо (кто регистрируется на сайте).
+set FLASKY_ADMIN=l*******@yandex.ru - задание через консоль того, кто будет ПОЛУЧАТЬ почту.
+Плюс я удалил старую базу данных и снова её создал.
+
+Перед запуском приложения в терминале необходимо ввести:
+(venv) C:\Users\Эдварт\PycharmProjects\pythonProject>set FLASK_APP=flasky.py
+
+(venv) C:\Users\Эдварт\PycharmProjects\pythonProject>set FLASK_DEBUG=1
+
+(venv) C:\Users\Эдварт\PycharmProjects\pythonProject>set MAIL_USE_TLS=1
+
+(venv) C:\Users\Эдварт\PycharmProjects\pythonProject>set MAIL_USERNAME=k######.##@u####.ru
+
+(venv) C:\Users\Эдварт\PycharmProjects\pythonProject>set MAIL_PASSWORD=...
+
+(venv) C:\Users\Эдварт\PycharmProjects\pythonProject>set FLASKY_ADMIN=l*******@yandex.ru
+
+(venv) C:\Users\Эдварт\PycharmProjects\pythonProject>flask run
+
 13.04.21 Седьмой commit.
 Приложение запускается (показывает Hello, Stranger!), тестый работают.
 Но почта не отправляется (yandex.ru), и при нажатие Submit приложение крашиться.
