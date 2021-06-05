@@ -1,3 +1,18 @@
+05.06.21 Финальный (17й) commit.
+Это финал. У меня всё получилось и всё работает, в том числе и тестирование веб-сервисов с помощью HTTPie (который не 
+получался в предыдущем commit).
+Команды для тестирование веб-сервисов с помощью HTTPie:
+
+http --json --auth ko###.###.ru:сфе GET http://127.0.0.1:5000/api/v1/posts
+
+http --auth ko###.###.ru:сфе --json POST http://127.0.0.1:5000/api/v1/posts/ "body=I'm adding a post from the *command line*."
+
+http --auth ko###.###.ru:сфе --json POST http://127.0.0.1:5000/api/v1/tokens/
+
+http --json --auth eyJpYXQ...: GET http://127.0.0.1:5000/api/v1/posts/
+
+КОНЕЦ))
+
 31.05.21 Шестнадцатый commit.
 Добил REST по блогу Мигеля (автор учебника по Flask) - добавил auth.py, tokens.py, handlers.py.
 Изменил errors.py и заполнил users.py. 
